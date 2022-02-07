@@ -41,6 +41,24 @@ async function createCartItemElement({ id: sku, title: name, price: salePrice })
 
 // const Pc = await fetchProducts('computador');
 
+async function somatorioItemCarrinho() {
+  let cont = 0;
+  const li = document.querySelectorAll('.cart__item');
+  li.forEach((liPosicao) => {
+    const array = liPosicao.innerText.split(':');
+    const arrayPosicao = array[array.length - 1];
+    // console.log('*' + arrayPosicao + '*');
+    // const arrayPosicaoSem$ = arrayPosicao.replace();
+    // console.log(arrayPosicaoSem$);
+    const arrayNumero = parseFloat(arrayPosicao.replace('$', '').trim());
+    console.log(arrayNumero);
+    cont += arrayNumero;
+  });
+  const valorPc = document.querySelector('.total-price');
+  valorPc.innerText = cont;
+  console.log(cont);
+}
+
 async function botaoAddCarinho(event) {
   const arrayBotao = [...document.getElementsByClassName('item__add')];
   if (arrayBotao.includes(event.target)) {
@@ -50,6 +68,7 @@ async function botaoAddCarinho(event) {
     createCartItemElement(objPc);
   }
   saveCartItems(ol);
+  somatorioItemCarrinho();
 }
 
 function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
@@ -72,6 +91,16 @@ async function criarLista() {
   });
 }
 
+function esvaziarCarrinho() {
+  const botaoEsvaziar = document.querySelector('.empty-cart');
+  console.log(botaoEsvaziar);
+  botaoEsvaziar.addEventListener('click', () => {
+    ol.innerText = '';
+  });
+  console.log(botaoEsvaziar);
+}
+
+esvaziarCarrinho();
 // .addEventListener('click', buscaId);
 window.onload = () => {
   criarLista();
