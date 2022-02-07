@@ -23,7 +23,7 @@ function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 }
 
-async function somatorioItemCarrinho() {
+function somatorioItemCarrinho() {
   let cont = 0;
   const li = document.querySelectorAll('.cart__item');
   li.forEach((liPosicao) => {
