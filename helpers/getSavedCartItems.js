@@ -1,8 +1,9 @@
 const getSavedCartItems = (ol) => {
   // seu código aqui
-  const copiaOl = ol;
+  let copiaOl = ol;
+  console.log(typeof copiaOl);
   copiaOl.innerHTML = localStorage.getItem('cartItems');
-  // console.log(copiaOl);
+  console.log(typeof copiaOl);
   // console.log(copiaOl.childNodes);
   return copiaOl;
 };
