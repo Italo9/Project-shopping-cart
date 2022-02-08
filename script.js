@@ -44,7 +44,7 @@ function getSkuFromProductItem(item) {
 function cartItemClickListener(event) {
   // coloque seu código aqui event.target.remove 
   this.remove();
-  saveCartItems(ol);
+  saveCartItems(ol.innerHTML);
   somatorioItemCarrinho();
 }
 
@@ -81,7 +81,7 @@ async function botaoAddCarinho(event) {
     const objPc = await fetchItem(buscaId(event));
     createCartItemElement(objPc);
   }
-  saveCartItems(ol);
+  saveCartItems(ol.innerHTML);
   somatorioItemCarrinho();
 }
 
@@ -112,7 +112,7 @@ function esvaziarCarrinho() {
   console.log(botaoEsvaziar);
   botaoEsvaziar.addEventListener('click', () => {
     ol.innerText = '';
-    saveCartItems(ol);
+    saveCartItems(ol.innerHTML);
   });
   console.log(botaoEsvaziar);
 }

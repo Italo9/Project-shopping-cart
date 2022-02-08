@@ -1,6 +1,6 @@
-const saveCartItems = (ol) => {
+const saveCartItems = (olInnerHTML) => {
   // seu código aqui
-  localStorage.setItem('cartItems', ol.innerHTML);
+  localStorage.setItem('cartItems', olInnerHTML);
   // console.log(localStorage);
 };
 
